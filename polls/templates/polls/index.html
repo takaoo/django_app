@@ -5,13 +5,15 @@ INDEX
 {% endblock %}
 
 {% block body_block %}
-<h1>Polls</h1>
+<h1 class="title">Polls</h1>
 {% if latest_question_list %}
-<ul>
-{% for question in latest_question_list %}
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-{% endfor %}
-</ul>
+<div class="content">
+    <ul>
+        {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
